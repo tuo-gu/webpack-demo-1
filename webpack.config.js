@@ -1,29 +1,22 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const base=require('./webpack.config.base.js')
+
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'index.[contenthash].js',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: '托谷',
-      template: 'src/assets/index.html'
-    })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-      }
-    ]
-  },
+  ...base,
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
   },
+  mode:"development",
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ],
+      }
+    ]
+  }
 };

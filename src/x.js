@@ -1,3 +1,2 @@
-import CSS from './x.css'
-console.log(CSS)
+import './x.css'
 export default 'xxx'
