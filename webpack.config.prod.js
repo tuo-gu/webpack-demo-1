@@ -15,14 +15,12 @@ module.exports = {
   ],
   module: {
     rules: [
+      ...base.module.rules,
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       }
+      
     ]
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
   },
 };
